@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 애니메이션 구현</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 200vh; /* 스크롤을 위해 페이지 길이 추가 */
+            overflow-x: hidden;
+        }
+
+        .container {
+            height: 100vh; /* 화면 처음 시작 시 100% 차지 */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-section {
+            background-color: #333;
+            height: 70%;
+            width: 100%;
+            transition: height 0.5s ease-out;
+        }
+
+        .bottom-section {
+            background-color: #0078d4;
+            height: 30%;
+            width: 100%;
+            transition: height 0.5s ease-out, top 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-section"></div>
+        <div class="bottom-section"></div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+
+            // 새로운 top-section 높이 (최소 20vh)
+            const newTopHeight = Math.max(70 - scrollY * 0.2, 20);
+            // bottom-section이 점점 위로 올라가며 넓어짐
+            const newBottomHeight = Math.min(30 + scrollY * 0.2, 80);
+
+            // 스크롤에 따라 섹션 높이 변경
+            document.querySelector('.top-section').style.height = `${newTopHeight}vh`;
+            document.querySelector('.bottom-section').style.height = `${newBottomHeight}vh`;
+        });
+    </script>
+</body>
+</html>

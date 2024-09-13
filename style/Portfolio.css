@@ -1,0 +1,357 @@
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+/* font-family: 'Montserrat', sans-serif; */
+
+/* Web Fonts : Playfair Display */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+/* font-family: 'Playfair Display', serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/* XEION CDN */
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+*{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  margin: 0;
+  line-height: 1.5em;
+}
+
+/* Toggle Trigger */
+.toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 100;
+}
+.toggle i{
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px; /*height 값만 큼 주면, 가운대로 */
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: 0.5s;
+}
+.toggle.active i{
+  background-color: yellowgreen;
+  transform: rotate(315deg);
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  background-color: rgb(0, 0, 0);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: 20px;
+  left: 20px;
+  transition: 0.5s;
+  opacity: 0;
+  z-index: 10;
+}
+
+.overlay.active{
+  transform: scale(130);
+  opacity: 1;
+}
+
+/* Common CSS */
+section {
+  height: 100vh;
+  /* height: auto; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* odd -> 홀수 , even -> 짝수*/
+section:nth-child(odd){
+  background-color: #f8f8f8;
+}
+
+section .inner{
+  width: 1150px;
+  text-align: center;
+}
+
+
+section .home{
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+@keyframes dropDownBounce {
+  0% {
+    top: calc(50% - 200%); 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; 
+  }
+  50% {
+    top: calc(50% - 37%); 
+    opacity: 1; 
+    
+  }
+
+  100% {
+    top: calc(50% - 50%); 
+    transform: translate(-50%, -50%);
+    opacity: 1; 
+  }
+}
+
+/* hover 상태에서 그림자와 크기 변화 */
+.home .pot:hover {
+  font-size: 12.5vw; /* 약간 커지도록 설정 */
+  text-shadow: -5px 10px 15px rgba(0, 0, 0, 0.4); /* 왼쪽 아래로 긴 그림자 효과 */
+  transition: 0.3s ease-in-out; /* 부드러운 변화 */
+}
+
+.home .pot{
+  font-family: 'Dela Gothic One', sans-serif;
+  position: absolute;
+  color: #595959;
+  font-size: 12vw; /* vw 단위로 폰트 크기 설정 */
+  text-transform: uppercase; /* 대문자로 변환 */
+  top: calc(50% - 40%);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0; /* 처음엔 보이지 않음 */
+  transition: 0.3s;
+  /* 애니메이션 설정 */
+  animation: dropDownBounce 2s cubic-bezier(0.25, 0.8, 0.5, 1) forwards; /* 부드러운 easing */
+}
+
+
+
+
+.myName,
+.myName2 {
+  font-family: 'Pretendard', sans-serif;
+  color: rgb(0, 0, 0);
+  padding: 0 20px;
+  font-size: 1.3vw;
+  position: absolute;
+  font-weight: 900;
+  display: inline-block;
+}
+
+/* Frontend만 커지게 */
+.myName:hover .highlight-frontend,
+.myName2:hover .highlight-name{
+  font-size: 1.8vw;
+  transform: scale(1.2);
+  transition: font-size 0.3s ease, transform 0.3s ease;
+  color: crimson;
+}
+
+
+
+.myNameInfo p:before{
+  content: '';
+  /* position: absolute 를 없애면 height 와 width 가 안먹을 것이다. 왜냐하면, before 는 inline 요소로 크기 값을 가질 수 없기 때문이다. 하지만 position: absolute를 주게 되면 inline-block 으로 변경되어 크기 값을 가질 수 있게 된다. */
+  position: absolute;
+  background-color: crimson;
+  height: 4px;
+  width: 0;
+  bottom: 0;
+  top: 100%;
+  transition: 0.3s;
+  /* right: 0; 를 넣으면 오른쪽 부터  */
+  left: 0;
+}
+.myNameInfo p:hover:before{
+  width: 100%;
+}
+.myName{
+  bottom:21%;
+  left:0;
+  
+}
+.myName2 {
+  bottom:17%;
+  left:11%;
+}
+
+
+.heading {}
+.heading h1 {
+  font-size: 3em;
+  padding-bottom: 40px;
+  position: relative;
+}
+.heading h1::before{
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 4px;
+  background-color: crimson;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+.heading p {
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+
+
+.gnb {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 100;
+}
+.gnb.active {
+  opacity: 1;
+  visibility: visible;
+}
+.gnb a{
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Playfair Display', serif; 
+  font-size: 3.5em;
+  line-height: 1.6em;
+  position: relative;
+  padding-right: 20px;
+}
+
+.gnb a:after{
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 0%;
+  background-color: yellowgreen;
+  left: 0;
+  bottom: 7px;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.gnb a:hover::after{
+  width: 100%;
+}
+
+
+
+.container-welcome {
+  height: 100vh; /* 화면 처음 시작 시 100% 차지 */
+  display: flex;
+  flex-direction: column;
+}
+
+.top-section {
+  background-color: #333;
+  height: 70%;
+  width: 100%;
+  transition: height 0.5s ease-out;
+}
+
+.bottom-section {
+  /* background-color: #0078d4; */
+  background-color: #fff;
+  height: 30%;
+  width: 100%;
+  transition: height 0.5s ease-out, top 0.5s ease-out;
+}
+
+
+.laptop{
+  position: absolute;
+  width: 65vw; /* 너비를 더 크게 조정 */
+  max-width: 650px; /* 최대 너비도 더 크게 조정 */
+  height: 40vw; /* 높이도 더 크게 조정 */
+  max-height: 400px; /* 최대 높이도 더 크게 조정 */
+  background-color: #919294;
+  border-radius: 5px;
+  top: calc(50% + 10%);
+  left: 50%;
+  transform: translate(-50% , -50%);
+  transition: top 0.3s ease-out; 
+}
+.laptop-screen {
+  width: 95%;
+  height: 80%;
+  background-color: #000000;
+  border-radius: 5px;
+  margin: 25px auto;
+  position: relative;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  border: 5px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.laptop-bottom {
+  width: 100%;
+  height: 15px;
+  background-color: #666;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 0 0 5px 5px;
+}
+
+
+.laptop-stand {
+  width: 80vw;
+  max-width: 800px;
+  height: 25px;
+  background-color: #999;
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.introduction{
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* font-size: 35px; */
+  font-size:1.8em;
+  line-height: 1.5em;
+  padding: 0px 20px;
+  text-align: left; /* 왼쪽 정렬 */
+  white-space: pre-wrap; /* 줄바꿈 보존 */
+  color: #C2C2C2; /* 기본 폰트 색상 */
+}
+
+.console { color: #DB4696; }
+.log { color: #FC512C; }
+.portfolio, .developer { color: #14D700; }
+.name { color: yellow; }
+
+

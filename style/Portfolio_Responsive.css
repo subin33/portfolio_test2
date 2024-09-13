@@ -1,0 +1,99 @@
+@media(max-width : 768px){
+  /* Commom CSS */
+  section:not(.welcome) {
+    height: auto;
+    padding: 40px 20px;
+  }
+  /* section.welcome{
+    padding: 0;
+  } */
+  section .inner {
+    /* width 가 px 로 되어 있으면 항상 100%로  */
+    width: 100%;
+  }
+  .heading h1{
+    font-size: 2em;
+    line-height: 1.3em;
+  }
+
+  /* GNB */
+  .gnb {
+    text-align: center;
+    width: 100%;
+  }
+  .gnb a {
+    font-size: 2.2em;
+  }
+
+  /* 노트북 */
+  .laptop {
+    width: 75vw;  /* 너비 줄이기 */
+    height: 50vw; /* 높이 줄이기 */
+  }
+
+  .laptop-screen {
+    width: 90%;   /* 화면 비율 조정 */
+    height: 70%;
+  }
+
+  .laptop-stand {
+    width: 85vw;  /* 스탠드 너비 줄이기 */
+  }
+
+  /* 노트북 글자 */
+  .introduction{
+    line-height: 1em;
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+
+  @keyframes dropDownBounce {
+    0% {
+      top: calc(50% - 200%); 
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0; 
+    }
+    50% {
+      top: calc(50% - 10%); /* 중간 지점은 더 위쪽에서 bounce 효과 */
+      opacity: 1; 
+    }
+  
+    100% {
+      top: calc(50% - 20%); /* 최종 지점을 50% - 20%로 수정 */
+      transform: translate(-50%, -50%);
+      opacity: 1; 
+    }
+  }
+  
+  .home .pot{
+    top: calc(50% - 20%); 
+    left:50%;
+    transform: translate(-50%, -50%);
+    animation: dropDownBounce 2s cubic-bezier(0.25, 0.8, 0.5, 1) forwards;
+  }
+  
+  
+  .myName,
+  .myName2 {
+    color: #000000;
+    font-size: 5vw;
+    margin-top: 10px;
+  }
+  .myName{
+    bottom: 10%;
+  }
+  .myName2{
+    bottom: 5%;
+    left:0%;
+  }
+
+  .myName2 .highlight-name,
+  .myName .highlight-frontend{
+    transform: scale(1.2);
+    transition: font-size 0.3s ease, transform 0.3s ease;
+    color: crimson;
+    font-size: 6.6vw;
+  }
+  
+}
